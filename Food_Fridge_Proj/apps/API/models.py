@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+
 import bcrypt
 import re
 from django.db import models
