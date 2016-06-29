@@ -1,0 +1,30 @@
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.recipeDiv {
+	width: 300px;
+	height: 300px;
+	border-radius: 5px;
+	border: 2px solid black;
+	padding: 5px;
+	background-color: lightgray;
+	margin: 20px;
+	display: inline-block;
+	vertical-align: top;
+}
+img{
+	border-radius: 10px;
+}
+h4 {
+	text-transform: capitalize;
+}
