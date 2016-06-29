@@ -19,11 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('apps.log_app.urls')),
-<<<<<<< HEAD
-    url(r'^main', include('apps.API.urls')),
-
-=======
     url(r'^main/', include('apps.API.urls')),
->>>>>>> Nghia
+
 ]
 

@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-from django.shortcuts import render
-
-# Create your views here.
-=======
-
 from django.shortcuts import render, redirect
 from .models import User
 
@@ -11,4 +5,4 @@ from .models import User
 def index(request):
 	return render(request, "fridge_templates/index.html")
 
->>>>>>> Nghia
+
