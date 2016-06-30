@@ -68,3 +68,25 @@ pre{
 	margin-left: 20px;
 	background-color: #F21B30
 }
+form.form{
+	background-color: #0241B3;
+	margin-top: 15%;
+}
+fieldset{
+	color: white;
+}
+div.registration, div.login{
+	width: 25%;
+	margin-left: 37%;
+}
+div.container{
+	text-align: center;
+	color: white;
+}
+div.container h1{
+	background-color: #0241B3;
+}
+h3.message{
+	background-color: red;
+	color: white;
+}

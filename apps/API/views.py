@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User
+from ..log_app.models import User
 
 # Create your views here.
 def index(request):
