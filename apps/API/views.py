@@ -5,4 +5,7 @@ from .models import User
 def index(request):
 	return render(request, "fridge_templates/index.html")
 
+def clear(request):
+	return redirect('/')
+
 

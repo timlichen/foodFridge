@@ -23,9 +23,18 @@ div.recipeResult: {
 	height: 100%;
 	width: 66%;
 }
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group>.btn, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn-group:not(:last-child)>.btn, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle){
+	margin-top: 20px;
+}
+.glyphicon{
+	margin-top: 19px;
+}
+p{
+	color: white;
+}
 .recipeDiv {
-	width: 300px;
-    height: 300px;
+	width: 275px;
+    height: 340px;
     border-radius: 5px;
     border: 2px solid black;
     padding: 5px;
@@ -36,9 +45,14 @@ div.recipeResult: {
     vertical-align: top;
 }
 img{
+	margin-top: 10px;
 	border-radius: 10px;
+	margin-left: 20px;
 }
 h4 {
+	font-size: 16px;
+	margin-left: 20px;
+	margin-right: 10px;
 	text-transform: capitalize;
 	color: white;
 }
@@ -46,7 +60,11 @@ h4 {
 pre{
 	background-color: 
 }
-
+#fadeandscale{
+	background-color: #0241B3;
+}
 .btn{
-	background-color: #C6B77C
+	width: 200px;
+	margin-left: 20px;
+	background-color: #F21B30
 }
