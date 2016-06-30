@@ -5,20 +5,21 @@
 </head>
 <body>
 <div class="container">
-	<form action='{% url "fridge" %}' method='post'> 
+	<form action='{% url "user_fridge" %}' method='post'> 
 		{% csrf_token%}
-		Ingredients: <input type="text" name="food_name"> <br>
-		<input type="submit" name="submit" value="Submit">
+		Ingredients: <input type="text" name="food_name"><br>
+		<input type="submit" name="submit" value="Add Food">
 		</form>
 
 	<div class="Fridge">
-		<h3>What you have in your fridge.</h3>
-		{% for food in food_item %}
+
+		<h3>Add food to your fridge.</h3>
+		{% for food in fooditem %}
 			<p>{{ food.food_name }}</p>
 		{% endfor %}	
 	</div>
-			
-
+		<!-- <h3>{{u.food_name}}</h3>	
+ -->
 
 
 
