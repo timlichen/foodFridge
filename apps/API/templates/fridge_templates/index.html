@@ -16,7 +16,7 @@
 
 	<script type="text/javascript">
 
-	
+
 		$(document).ready(function(){
 
 			$('#fadeandscale').popup({
@@ -34,8 +34,8 @@
 			    type: 'GET', // The HTTP Method
 			    data: {}, // Additional parameters here
 			    dataType: 'json',
-			    success: function(data) { 
-			    	// alert(JSON.stringify(data)); 
+			    success: function(data) {
+			    	// alert(JSON.stringify(data));
 			    	console.dir(data)
 
 			    	for(var i=0; i<5; i++){
@@ -46,7 +46,7 @@
 			       		<img src='" + data[i].image + "' height='180' width='220'>\
 			       		<h4>" + data[i].title + "</h4>" +
 			      		// "<p> Likes:" + data[i].likes + "</p>" +
-			       		"<a id='popuprecipe' class='initialism fadeandscale_open btn btn-success' href='#fadeandscale' recipeID='" + data[i].id +"'>Find Recipe</a>" + 
+			       		"<a id='popuprecipe' class='initialism fadeandscale_open btn btn-success' href='#fadeandscale' recipeID='" + data[i].id +"'>Find Recipe</a>" +
 			      		"</div>");
 		   			}
 		   			$("div")
@@ -60,10 +60,10 @@
 
 			); //end of whatever function
 
-		
+
 
 		}; //end of document ready
-	
+
 			function recipeAPI(recipeID){
 			$.ajax(
 				{
@@ -71,7 +71,7 @@
 				    type: 'GET', // The HTTP Method
 				    data: {}, // Additional parameters here
 				    dataType: 'json',
-				    success: function(data) { 
+				    success: function(data) {
  						// console.log(data[0].steps)
  						$('#recipeSteps').html(" ")
  						$('#ingredients').html(" ")
@@ -85,10 +85,10 @@
 									})
 								}
 	 						})
- 					
+
  						}
 
-				      
+
 				   //  	console.dir(data)
 				   //  	console.log("itworked")
 				   //  	$('#recipeSteps').html(" ")
@@ -108,15 +108,15 @@
 				})
 			}
 
-			$(document).on('click', '.search', function(){				
+			$(document).on('click', '.search', function(){
 				var foodChoice = whatever($('.form-control').val());
-			})	
-					
-			$(document).on('click', '#popuprecipe', function(e){			
+			})
+
+			$(document).on('click', '#popuprecipe', function(e){
 				console.log(e);
 				var eats = $(e.target).attr('recipeID');			// takes the recipeID from the button "Find Recipe"
 				recipeAPI(eats)
-				
+
 			})
 
 
@@ -124,7 +124,7 @@
 
 
 		})//end of document on
-		
+
 
 
 
@@ -140,14 +140,17 @@
 	<div class="container">
 		<div class="row">
 	        <div class="col-sm-6 col-sm-offset-3">
-	            <div id="imaginary_container"> 
+	            <div id="imaginary_container">
 	                <div class="input-group stylish-input-group">
-	                    <input type="text" name="food_1" class="form-control"  placeholder="Search" value=" {%for food in save%}{{food.name}}{% endfor%}"> 
+											<!--  iterating over session object here -->
+	                    <input type="text" name="food_1" class="form-control"  placeholder="Search"
+											value="{% for i in request.session.food_search%}{{ i }} {% endfor %}
+											">
 	                    <span class="input-group-addon">
-	                        <button class="search" type="submit">	    
+	                        <button class="search" type="submit">
 	                            <span class="glyphicon glyphicon-search"></span>
 	                        </button>
-	                        <a href="{% url 'clear' %}">Clear Recipes</a>  
+	                        <a href="{% url 'clear' %}">Clear Recipes</a>
 	                    </span>
 	                </div>
 	            </div>
@@ -162,17 +165,12 @@
 			{% csrf_token %}
 			<input type="text" name="name">
 			{% for foo in food %}
-			<p class='foodfridge'><a href="{% url 'append' id=foo.id %}">{{ foo.food_id.name }}</a><a href="{% url 'remove' id=foo.id %}">Remove</a></p>
+																	<!-- You were using the wrong ID here -->
+			<p class='foodfridge'><a href="{% url 'append' id=foo.food_id.id %}">{{ foo.food_id.name }}</a><a href="{% url 'remove' id=foo.id %}">Remove</a></p>
 			{% endfor %}
 			<input type="submit" value="Add Ingredients">
 		</form>
 	</div>
-
-
-	
-
-
-	
 					<div id="fadeandscale" class="well">
 					    <h4 id="Title">Recipe</h4>
 					<pre class="prettyprint">
@@ -194,7 +192,7 @@
 					        transition: 'all 0.3s'
 					    });
 
-						
+
 
 					});
 					</script>
