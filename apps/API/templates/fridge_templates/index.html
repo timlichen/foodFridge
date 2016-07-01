@@ -142,11 +142,12 @@
 	        <div class="col-sm-6 col-sm-offset-3">
 	            <div id="imaginary_container"> 
 	                <div class="input-group stylish-input-group">
-	                    <input type="text" name="food_1" class="form-control"  placeholder="Search" >
+	                    <input type="text" name="food_1" class="form-control"  placeholder="Search" value=" {%for food in save%}{{food.name}}{% endfor%}"> 
 	                    <span class="input-group-addon">
 	                        <button class="search" type="submit">	    
 	                            <span class="glyphicon glyphicon-search"></span>
-	                        </button>  
+	                        </button>
+	                        <a href="{% url 'clear' %}">Clear Recipes</a>  
 	                    </span>
 	                </div>
 	            </div>
@@ -154,11 +155,24 @@
 		</div>
 	</div>
 
-	<div class="recipeResult"></div>
+		<div class="recipeResult"></div>
+
+	<div class='right'>
+		<form action="{% url 'addfood' %}" method='POST' class='food'>
+			{% csrf_token %}
+			<input type="text" name="name">
+			{% for foo in food %}
+			<p class='foodfridge'><a href="{% url 'append' id=foo.id %}">{{ foo.food_id.name }}</a><a href="{% url 'remove' id=foo.id %}">Remove</a></p>
+			{% endfor %}
+			<input type="submit" value="Add Ingredients">
+		</form>
+	</div>
 
 
+	
 
 
+	
 					<div id="fadeandscale" class="well">
 					    <h4 id="Title">Recipe</h4>
 					<pre class="prettyprint">
@@ -202,7 +216,6 @@
 					            transform: scale(1);
 					}
 					</style>
-
 
 </div>
 </body>

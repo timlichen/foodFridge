@@ -3,6 +3,6 @@ from . import views
 
 urlpatterns = [
    
-    url(r'^$', views.index, name='home'),
+    url(r'^$', views.index),
   	url(r'^fridge$', views.fridge, name="user_fridge")
 ]
